@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'money'
 
 RSpec.describe ConversionService do
     describe ".convert" do
@@ -14,7 +15,7 @@ RSpec.describe ConversionService do
 
         let(:convert_to) { "CAD" }
         let(:convert_from) { "USD" }
-        let(:amount) { 100.00 }
+        let(:amount) { "100.00" }
 
         context "when converting from USD to another currency" do
             it "returns the right value" do
@@ -25,7 +26,7 @@ RSpec.describe ConversionService do
         context "when converting from non-USD to USD" do
             let(:convert_to) { "USD" }
             let(:convert_from) { "CAD" }
-            let(:amount) { 80.00 }
+            let(:amount) { "80.00" }
 
             it "returns the right value" do
                 expect(subject).to eq(100.00)
@@ -35,10 +36,10 @@ RSpec.describe ConversionService do
         context "when converting from non-USD to non-USD" do
             let(:convert_to) { "EUR" }
             let(:convert_from) { "YEN" }
-            let(:amount) { 100.00 }
+            let(:amount) { "100.00" }
 
             it "returns the right value" do
-                expect(subject).to eq(0.76)
+                expect(subject).to eq(0.75)
             end
         end
         

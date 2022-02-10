@@ -10,6 +10,10 @@ RSpec.describe ExchangeController, :type => :controller do
 
             subject { get :show, params: {:id => currency_code, :converted_from => other_currency_code, :converted_to => currency_code, :amount => amount} }
 
+            before do
+                allow(ConversionService).to receive(:convert).and_return(1.27)
+            end
+
             it "returns 200" do
                 subject
                 expect(response).to have_http_status(:ok)
