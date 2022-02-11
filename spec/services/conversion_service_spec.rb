@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'money'
 
 RSpec.describe ConversionService do
     describe ".convert" do

@@ -18,6 +18,12 @@ RSpec.describe ExchangeController, :type => :controller do
                 subject
                 expect(response).to have_http_status(:ok)
             end
+
+            it "has a response body with new_amount" do
+                subject
+                body = JSON.parse(response.body)
+                expect(body).to have_key("new_amount")
+            end
         end
     end
 end

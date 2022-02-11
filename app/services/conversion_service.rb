@@ -1,5 +1,3 @@
-require 'money'
-
 class ConversionService
 
     def self.convert(convert_from:, convert_to:, amount:)
