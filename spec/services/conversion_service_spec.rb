@@ -38,7 +38,7 @@ RSpec.describe ConversionService do
             let(:amount) { "100.00" }
 
             it "returns the right value" do
-                expect(subject).to eq(0.75)
+                expect(subject).to eq(0.754386)
             end
         end
         
